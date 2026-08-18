@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroDiagnostics AI - Tumor Detection</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo-icon"></div>
+                <h2>NeuroDiag AI</h2>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active"><span>Scan Analysis</span></a>
+                <a href="#"><span>Patient Records</span></a>
+                <a href="#"><span>Model Config</span></a>
+                <a href="#"><span>Settings</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Hybrid ViT+CNN v2.1</p>
+                <p class="subtext">Hardware Optimized inference</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Early Brain Tumor Detection</h1>
+                <p>Upload MRI or CT scans for immediate Hybrid AI analysis.</p>
+            </header>
+
+            <div class="content-grid">
+                <!-- Upload Section -->
+                <section class="upload-section card">
+                    <h3>Upload Scan</h3>
+                    <form id="uploadForm">
+                        <div class="drop-zone" id="dropZone">
+                            <div class="upload-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            </div>
+                            <p>Drag & drop image here</p>
+                            <span class="or-text">or</span>
+                            <label for="fileInput" class="btn-primary">Browse Files</label>
+                            <input type="file" id="fileInput" name="file" accept="image/*" hidden>
+                        </div>
+                        <div class="preview-container" id="previewContainer" style="display: none;">
+                            <img id="imagePreview" src="" alt="Scan Preview">
+                            <button type="button" id="removeBtn" class="btn-secondary btn-small">Remove</button>
+                        </div>
+                        <button type="submit" id="analyzeBtn" class="btn-primary full-width" disabled>Analyze Scan</button>
+                    </form>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loadingState" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Processing via Hybrid AI Model...</p>
+                        <ul class="loading-steps">
+                            <li class="active">Extracting CNN Features (EfficientNet)</li>
+                            <li>Running Vision Transformer Encoder</li>
+                            <li>Calculating Confidence Score</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section card">
+                    <h3>Analysis Results</h3>
+                    
+                    <div id="emptyState" class="empty-state">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <p>No scan analyzed yet. Upload an image to see results.</p>
+                    </div>
+
+                    <div id="resultContent" class="result-content" style="display: none;">
+                        <div class="diagnosis-card" id="diagnosisCard">
+                            <div class="result-header">
+                                <h4>Diagnosis</h4>
+                                <span class="badge" id="predictionBadge">Tumor Detected</span>
+                            </div>
+                            <div class="confidence-meter">
+                                <div class="meter-label">
+                                    <span>AI Confidence Score</span>
+                                    <span id="confidenceValue">98.5%</span>
+                                </div>
+                                <div class="meter-bar">
+                                    <div class="meter-fill" id="meterFill" style="width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions-group">
+                            <h4>Report Generation</h4>
+                            <p class="action-desc">Download or print the official medical report containing visual evidence and clinical recommendations.</p>
+                            <div class="btn-group">
+                                <a href="#" id="downloadPdfBtn" class="btn-primary" download>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                    Download PDF
+                                </a>
+                                <button type="button" id="printBtn" class="btn-secondary">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                                    Print Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- PDF Print Frame (Hidden) -->
+    <iframe id="pdfIframe" style="display:none;" title="pdf_print"></iframe>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

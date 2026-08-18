@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+python-multipart
+jinja2
+torch
+torchvision
+reportlab
+pillow
+httpx
+tqdm
+matplotlib
+seaborn
+scikit-learn
