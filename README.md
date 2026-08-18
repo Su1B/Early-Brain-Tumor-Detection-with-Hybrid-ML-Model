@@ -1,4 +1,4 @@
-# 🧠 Early Brain Tumor Detection Using a Hybrid ML Model
+🧠 Early Brain Tumor Detection Using a Hybrid ML Model
 
 An AI-powered brain tumor detection system that combines **EfficientNet-B0** and a **Vision Transformer (ViT)** to classify MRI brain scans as **healthy or tumor-positive**.
 
@@ -8,13 +8,13 @@ The project integrates a deep learning pipeline with a **FastAPI web server** an
 
 ---
 
-## 📌 Project Overview
+📌 Project Overview
 
 Brain tumor detection from MRI scans is an important application of medical image analysis. Traditional image classification approaches often rely on CNN architectures that are highly effective at extracting local visual features but may have limitations when modeling broader relationships within an image.
 
 This project implements a **hybrid CNN + Transformer architecture**:
 
-**MRI Scan → Image Preprocessing → EfficientNet-B0 → Transformer → Classification → PDF Report**
+MRI Scan → Image Preprocessing → EfficientNet-B0 → Transformer → Classification → PDF Report
 
 * **EfficientNet-B0** extracts important visual features such as edges, textures, and structural patterns.
 * **Transformer layers** process these extracted features to capture broader relationships within the MRI representation.
@@ -24,7 +24,7 @@ This project implements a **hybrid CNN + Transformer architecture**:
 
 ---
 
-## ✨ Key Features
+✨ Key Features
 
 * 🧠 Hybrid **EfficientNet-B0 + Transformer** architecture
 * 🖼️ MRI image preprocessing and resizing to **224 × 224**
