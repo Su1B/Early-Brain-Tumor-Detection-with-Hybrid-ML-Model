@@ -1,6 +1,6 @@
 🧠 Early Brain Tumor Detection Using a Hybrid ML Model
 
-An AI-powered brain tumor detection system that combines **EfficientNet-B0** and a **Vision Transformer (ViT)** to classify MRI brain scans as **healthy or tumor-positive**.
+An AI-powered brain tumor detection system that combines **EfficientNet-B0** and a **Vision Transformer (ViT)** to classify MRI brain scans as **healthy or tumor-positive.
 
 The project integrates a deep learning pipeline with a **FastAPI web server** and an automated **PDF medical report generator**, providing an end-to-end demonstration of AI-assisted medical image screening.
 
